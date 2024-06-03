@@ -82,15 +82,18 @@ export function get_html_full_events(events: EventEntry[]) {
   let full_html: string = '';
   const {short_events, medium_events, long_events} = get_html_entries(events);
   if (short_events.length > 0) {
-    full_html = full_html + `<h4>Short training (2 hours or less)</h4>
+    full_html = full_html + `
+<h4>Short training (2 hours or less)</h4>
 ${short_events.map((s) => s + "</br>").join("\n")}`;
   }
   if (medium_events.length > 0) {
-    full_html = full_html + `<h4>Half-day training (3-4 hours)</h4>
+    full_html = full_html + `
+<h4>Half-day training (3-4 hours)</h4>
 ${medium_events.map((s) => s + "</br>").join("\n")} `;
   }
   if (long_events.length > 0) {
-    full_html = full_html + `<h4>Full day training (or 2 half-days)</h4>
+    full_html = full_html + `
+<h4>Full day training (or 2 half-days)</h4>
 ${long_events.map((s) => s + "</br>").join("\n")}`;
   }
   return full_html;
