@@ -28,6 +28,8 @@ function parse_duration(duration: string): number {
 }
 
 function parse_row(row: string[]): EventEntry {
+  // If it's a multi-day event, with a date like "4 - 5 July", grab
+  //   the first number and treat it as "4 July"
   const multi_date_pattern = /(\d+)\s?-\s?\d+/
   const date_string = row[0].replace(multi_date_pattern, "$1");
   const date = parse(date_string, "d MMMM", new Date());
