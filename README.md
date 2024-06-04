@@ -1,3 +1,10 @@
+This is an experiment in creating a web-app out of an R script - the output of the R script was
+needed regularly, so had to be run by someone with an R environment set up. This webapp
+should perform the same actions each time the page is loaded, by scraping the page
+for our training calendar and reformatting it into HTML.
+
+**NB:** probably still requires some debugging, should be checked against the existing R script.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
