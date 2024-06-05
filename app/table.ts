@@ -96,7 +96,7 @@ function event_to_html(event: EventEntry): string {
   if (event.link.startsWith("http")) {
     link = `<a href="${event.link}">${event.event_name}</a>`;
   } else {
-    link = event.link.trim();
+    link = event.event_name.trim();
   }
   return `<b>${event.date_text}</b>: ${link}`;
 }
