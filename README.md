@@ -1,9 +1,21 @@
+# Training calendar scraper
+
 This is an experiment in creating a web-app out of an R script - the output of the R script was
 needed regularly, so had to be run by someone with an R environment set up. This webapp
 should perform the same actions each time the page is loaded, by scraping the page
 for our training calendar and reformatting it into HTML.
 
 **NB:** probably still requires some debugging, should be checked against the existing R script.
+
+## Notes on web-scraping with JavaScript/TypeScript
+
+* This was more difficult than expected! Not sure if there is much of a "data analysis" ecosystem
+  in JavaScript yet
+* Couldn't find a simple existing tool to grab a HTML table - the table had to be parsed manually
+* Once parsed (and type-annotated with TypeScript), processing the data was fairly straightforward
+* Deploying the web-app as a static page through GitHub Pages was straightforward
+
+## Project setup
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
