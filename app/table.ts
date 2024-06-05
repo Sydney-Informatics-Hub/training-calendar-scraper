@@ -94,7 +94,7 @@ export async function parse_table(drop_past_events: boolean) {
 function event_to_html(event: EventEntry): string {
   let link: string;
   if (event.link.startsWith("http")) {
-    link = `<a href="${event.link}">${event.event_name}</a>`;
+    link = `<a href="${event.link}">${event.event_name.trim()}</a>`;
   } else {
     link = event.event_name.trim();
   }
