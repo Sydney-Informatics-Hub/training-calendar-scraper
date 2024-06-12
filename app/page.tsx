@@ -15,15 +15,17 @@ export default async function Home() {
     <main className="flex flex-col items-center justify-between p-24">
       <Card className="max-w-5xl text-gray-900 w-full mt-2">
         <h2 className="text-gray-900">Training calendar scraping</h2>
-        {drop_past_events && <Alert color="info">Past events have been automatically dropped</Alert>}
+        {drop_past_events && <Alert color="info" className="max-w-lg">ℹ️ Past events have been automatically dropped</Alert>}
         {headers_ok ? "Table headers look OK ✅" : "Headers don't match what expect - did the table format change?"}
       </Card>
       <Card className="max-w-5xl w-full mt-2 text-gray-900 overflow-scroll">
         <h2>HTML for events</h2>
-        <pre className="text-xs">{html}</pre>
+        <hr/>
+        <pre className="text-xs bg-gray-100 overflow-x-scroll p-2 font-mono">{html}</pre>
       </Card>
       <Card className="max-w-5xl w-full mt-2 text-gray-900">
         <h2>Preview</h2>
+        <hr/>
         <div
           dangerouslySetInnerHTML={{__html: html}}
         />
