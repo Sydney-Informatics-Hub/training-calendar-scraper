@@ -18,7 +18,7 @@ export default async function Home() {
   const html = get_html_full_events(row_data);
 
   return (
-    <main className="flex flex-col items-center justify-between p-24 bg-gray-200">
+    <main className="flex flex-col items-center justify-between p-24 bg-red-100">
       <Card className="max-w-5xl text-gray-900 w-full mt-2">
         <h2 className="text-gray-900">Training calendar scraping</h2>
         {drop_past_events && <Alert color="info" className="max-w-lg">ℹ️ Past events have been automatically dropped</Alert>}
