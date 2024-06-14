@@ -1,9 +1,15 @@
 import {get_html_full_events, parse_table} from "@/app/table";
 import {arrays_equal} from "@/app/utils";
 import {Alert, Card} from "flowbite-react";
+import type { Metadata } from 'next'
 
 const expected_headers = ["Date", "Event name", "Duration, format", "Link"];
 const drop_past_events = true;
+
+export const metadata: Metadata = {
+  title: "SIH Training Calendar Scraper",
+  description: "Simple web app for formatting our training events as HTML- for internal use"
+}
 
 
 export default async function Home() {
@@ -12,7 +18,7 @@ export default async function Home() {
   const html = get_html_full_events(row_data);
 
   return (
-    <main className="flex flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center justify-between p-24 bg-gray-200">
       <Card className="max-w-5xl text-gray-900 w-full mt-2">
         <h2 className="text-gray-900">Training calendar scraping</h2>
         {drop_past_events && <Alert color="info" className="max-w-lg">ℹ️ Past events have been automatically dropped</Alert>}
