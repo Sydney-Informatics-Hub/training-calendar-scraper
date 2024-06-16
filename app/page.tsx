@@ -2,6 +2,7 @@ import {get_html_full_events, parse_table} from "@/app/table";
 import {arrays_equal} from "@/app/utils";
 import {Alert, Card} from "flowbite-react";
 import type { Metadata } from 'next'
+import CopyButton from "@/app/components/CopyButton";
 
 const expected_headers = ["Date", "Event name", "Duration, format", "Link"];
 const drop_past_events = true;
@@ -27,7 +28,8 @@ export default async function Home() {
       <Card className="max-w-5xl w-full mt-2 text-gray-900 overflow-scroll">
         <h2>HTML for events</h2>
         <hr/>
-        <pre className="text-xs bg-gray-100 overflow-x-scroll p-2 font-mono">{html}</pre>
+        <CopyButton/>
+        <pre id="html-output" className="text-xs bg-gray-100 overflow-x-scroll p-2 font-mono">{html}</pre>
       </Card>
       <Card className="max-w-5xl w-full mt-2 text-gray-900">
         <h2>Preview</h2>
