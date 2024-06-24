@@ -19,20 +19,20 @@ export default async function Home() {
   const html = get_html_full_events(row_data);
 
   return (
-    <main className="flex flex-col items-center justify-between p-24 bg-red-100">
+    <main className="flex flex-col items-center justify-between p-24 bg-teal-600">
       <Card className="max-w-5xl text-gray-900 w-full mt-2">
-        <h2 className="text-gray-900">Training calendar scraping</h2>
+        <h2 className="text-gray-900 font-bold">Training calendar scraping</h2>
         {drop_past_events && <Alert color="info" className="max-w-lg">ℹ️ Past events have been automatically dropped</Alert>}
-        {headers_ok ? "Table headers look OK ✅" : "Headers don't match what expect - did the table format change?"}
+        {headers_ok ? <Alert color="info" className="max-w-lg">✅ Table headers look OK</Alert> : <Alert color="danger">Headers don&apos;t match what expect - did the table format change?</Alert>}
       </Card>
       <Card className="max-w-5xl w-full mt-2 text-gray-900 overflow-scroll">
-        <h2>HTML for events</h2>
+        <h2 className="font-bold text-xl">HTML for events</h2>
         <hr/>
         <CopyButton/>
         <pre id="html-output" className="text-xs bg-gray-100 overflow-x-scroll p-2 font-mono">{html}</pre>
       </Card>
       <Card className="max-w-5xl w-full mt-2 text-gray-900">
-        <h2>Preview</h2>
+        <h2 className="font-bold text-xl">Preview</h2>
         <hr/>
         <div
           dangerouslySetInnerHTML={{__html: html}}
