@@ -6,7 +6,7 @@ export default function CopyButton() {
   const [show_message, set_show_message] = React.useState(false);
   function copy_html() {
     const output = document.querySelector("#html-output")!;
-    navigator.clipboard.writeText(output.textContent!)
+    navigator.clipboard.writeText(output.textContent!.trimStart())
     set_show_message(true);
     setTimeout(() => {
       set_show_message(false);
