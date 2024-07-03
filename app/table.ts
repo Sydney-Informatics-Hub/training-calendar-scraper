@@ -7,7 +7,7 @@ import { parse } from "date-fns";
 async function get_page() {
   const page = await fetch(
     "https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html",
-    { mode: "no-cors" },
+    { mode: "no-cors", next: {revalidate: 60 * 60} },
   ).then((response: Response) => {
     return response.text()!;
   });
