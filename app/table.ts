@@ -40,15 +40,24 @@ interface EventEntry {
  */
 function parse_duration(duration: string): number {
   const duration_pattern = /(\d+(\.\d+)?)\s?h/;
-  const match = duration_pattern.exec(duration)![1];
-  return parseFloat(match);
+  const hours_match = duration_pattern.exec(duration);
+  if (hours_match !== null) {
+    return parseFloat(hours_match[1]);
+  }
+  const minutes_pattern = /(\d+(\.\d+)?)\s?m/;
+  const minutes_match = minutes_pattern.exec(duration);
+  if (minutes_match !== null) {
+    return parseFloat(minutes_match[1]) / 60;
+  }
+  // Fallback if we can't parse: return 1 hour
+  return 1;
 }
 
 /** Extract event information from a single row of the table */
 function parse_row(row: string[]): EventEntry {
   // If it's a multi-day event, with a date like "4 - 5 July", grab
   //   the first number and treat it as "4 July"
-  const multi_date_pattern = /(\d+)\s?-\s?\d+/;
+  const multi_date_pattern = /(\d+)\s?[-&]\s?\d+/;
   const date_string = row[0].replace(multi_date_pattern, "$1");
   const date = parse(date_string, "d MMMM", new Date());
   return {
