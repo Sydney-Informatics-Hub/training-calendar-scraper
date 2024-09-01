@@ -1,5 +1,11 @@
 # Training calendar scraper
 
+**⚠️ Note:** the page at https://sydney-informatics-hub.github.io/training-calendar-scraper/ will **not** automatically
+update currently - I didn't think through how this would work when exported to a static page.
+
+As a workaround, you can manually run the github action at https://github.com/Sydney-Informatics-Hub/training-calendar-scraper/actions/workflows/nextjs.yml
+for now. A better fix might be to deploy the page (for free) via Vercel - which would allow the incremental static generation to work.
+
 This is an experiment in creating a web-app out of an R script - the output of the R script was
 needed regularly, so had to be run by someone with an R environment set up. This webapp
 should perform the same actions each time the page is loaded, by scraping the page
