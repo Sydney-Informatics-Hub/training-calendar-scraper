@@ -60,6 +60,14 @@ function parse_row(row: string[]): EventEntry {
   const multi_date_pattern = /(\d+)\s?[-&]\s?\d+/;
   const date_string = row[0].replace(multi_date_pattern, "$1");
   const date = parse(date_string, "d MMMM", new Date());
+
+  // If the date is more than 3 months ago, add a year to it
+  const three_months_ago = new Date();
+  three_months_ago.setMonth(three_months_ago.getMonth() - 3);
+  if (date < three_months_ago) {
+    date.setFullYear(date.getFullYear() + 1);
+  }
+
   return {
     date_text: row[0].trim(),
     date: date,
@@ -93,6 +101,7 @@ export async function parse_table(drop_past_events: boolean) {
     })
     .map((cells) => parse_row(cells))
     .sort((a, b) => a.date.getTime() - b.date.getTime());
+  console.log("Parsed events:", row_data);
   if (drop_past_events) {
     row_data = row_data.filter((event) => event.date >= new Date());
   }
